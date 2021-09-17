@@ -14,24 +14,26 @@ export const Else: React.FunctionComponent<IfProps> = ({ children }): JSX.Elemen
 };
 
 export const If: React.FunctionComponent<IfProps> = ({ children, condition }): JSX.Element => {
-  let block = null;
+  const block: JSX.Element[] = [];
   let elseIfConditionMet = false;
   let stop = false;
 
-  React.Children.forEach(children, (child: ReactElement) => {
+  React.Children.forEach(children, (child: ReactElement, index: number) => {
     if (stop) return;
-    if (condition) {
-      block = child;
-      stop = true;
-    }
     if (child.type === ElseIf && child.props.condition) {
-      block = child;
+      block.push(child);
       elseIfConditionMet = true;
-    }
-    if (child.type === Else && !elseIfConditionMet && !condition) {
-      block = child;
+    } else if (child.type === Else && !elseIfConditionMet && !condition) {
+      block.push(child);
+    } else {
+      if (condition) {
+        block.push(child);
+        if (index === React.Children.count(children) - 1) {
+          console.log('here');
+          stop = true;
+        }
+      }
     }
   });
-
-  return block;
+  return <>{block.map((child) => child)}</>;
 };
