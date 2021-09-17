@@ -29,7 +29,6 @@ export const If: React.FunctionComponent<IfProps> = ({ children, condition }): J
       if (condition) {
         block.push(child);
         if (index === React.Children.count(children) - 1) {
-          console.log('here');
           stop = true;
         }
       }
