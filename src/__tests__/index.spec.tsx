@@ -31,6 +31,7 @@ describe('If conditional rendering component', () => {
       </div>
     );
     expect(screen.getByTestId('container')).toHaveTextContent('Title1');
+    expect(screen.getByTestId('container')).not.toHaveTextContent('Title4');
   });
 
   it('should render elseif condition', () => {
@@ -54,6 +55,9 @@ describe('If conditional rendering component', () => {
     );
     expect(screen.getByTestId('container')).toHaveTextContent('Title2');
     expect(screen.getByTestId('container')).toHaveTextContent('Content');
+    expect(screen.getByTestId('container')).not.toHaveTextContent('Title1');
+    expect(screen.getByTestId('container')).not.toHaveTextContent('Title3');
+    expect(screen.getByTestId('container')).not.toHaveTextContent('Title4');
   });
 
   it('should render else condition', () => {
@@ -74,5 +78,7 @@ describe('If conditional rendering component', () => {
     );
     expect(screen.getByTestId('container')).toHaveTextContent('Title3');
     expect(screen.getByTestId('container')).toHaveTextContent('Content');
+    expect(screen.getByTestId('container')).not.toHaveTextContent('Title1');
+    expect(screen.getByTestId('container')).not.toHaveTextContent('Title2');
   });
 });
