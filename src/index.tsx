@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, {ReactElement} from 'react';
 
 interface IfProps {
   condition?: boolean;
@@ -18,7 +18,7 @@ export const If: React.FunctionComponent<IfProps> = ({ children, condition }): J
   let ifConditionMet = false;
   let elseIfConditionMet = false;
 
-  React.Children.forEach(children, (child: ReactElement) => {
+  React.Children.forEach((children as ReactElement), (child: ReactElement) => {
     if (condition && child.type !== ElseIf && child.type !== Else) {
       ifConditionMet = true;
       block.push(child);

@@ -1,5 +1,6 @@
-import { Else, ElseIf, If } from '../index';
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
+import { Else, ElseIf, If } from '../index';
 import {render, screen} from "@testing-library/react";
 
 describe('If conditional rendering component', () => {

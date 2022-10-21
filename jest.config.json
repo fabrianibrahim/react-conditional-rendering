@@ -1,0 +1,17 @@
+{
+  "verbose": true,
+  "moduleFileExtensions": [
+    "js",
+    "ts",
+    "tsx"
+  ],
+  "transform": {
+    "^.+\\.js$": "babel-jest",
+    "\\.(ts|tsx)$": "ts-jest"
+  },
+  "testPathIgnorePatterns": [
+    "node_modules"
+  ],
+  "testRegex": "(/__tests__/.*|\\.(spec))\\.(js|ts|tsx)$",
+  "testEnvironment": "jest-environment-jsdom"
+}
