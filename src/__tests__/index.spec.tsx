@@ -1,6 +1,6 @@
 import { Else, ElseIf, If } from '../index';
 import React from 'react';
-import { render, screen } from '@test-helper/TestingLibraryUtils';
+import {render, screen} from "@testing-library/react";
 
 describe('If conditional rendering component', () => {
   let data;
